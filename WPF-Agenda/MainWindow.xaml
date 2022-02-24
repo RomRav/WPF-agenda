@@ -1,0 +1,24 @@
+﻿<Window x:Class="WPF_Agenda.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Agenda"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <Menu BorderThickness="1" BorderBrush="#828A95" Background="#edede9">
+            <MenuItem Header="_Menu"  Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77">
+                <MenuItem Header="_Clients" Background="#d8f3dc" BorderThickness="2" BorderBrush="#184e77">
+                    <MenuItem Click="toAddCustomer" Header="_Ajouter un client" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
+                    <MenuItem  Header="_Liste des clients" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
+                </MenuItem>
+                <MenuItem Header="_Courtier" Background="#d8f3dc" BorderThickness="2" BorderBrush="#184e77">
+                    <MenuItem Header="_Ajouter un courtier" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
+                    <MenuItem Click="toAddCustomer" Header="_Liste des courtiers" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Frame Name="mainFrame" Source="" Height="500" ></Frame>
+    </StackPanel>
+</Window>
