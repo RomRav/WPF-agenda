@@ -8,7 +8,7 @@ using WPF_Agenda.Models;
 
 namespace WPF_Agenda.Models
 {
-    internal class Broker
+    public class Broker
     {
         [Key]
         public int IdBrokers { get; set; }

@@ -7,12 +7,24 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="addBroker.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="addCustomer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="customersList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="addBroker.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="addCustomer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="customersList.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

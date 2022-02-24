@@ -11,10 +11,10 @@
             <MenuItem Header="_Menu"  Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77">
                 <MenuItem Header="_Clients" Background="#d8f3dc" BorderThickness="2" BorderBrush="#184e77">
                     <MenuItem Click="toAddCustomer" Header="_Ajouter un client" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
-                    <MenuItem  Header="_Liste des clients" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
+                    <MenuItem Click="toCustomerList" Header="_Liste des clients" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
                 </MenuItem>
                 <MenuItem Header="_Courtier" Background="#d8f3dc" BorderThickness="2" BorderBrush="#184e77">
-                    <MenuItem Header="_Ajouter un courtier" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
+                    <MenuItem Click="toAddBroker" Header="_Ajouter un courtier" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
                     <MenuItem Click="toAddCustomer" Header="_Liste des courtiers" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
                 </MenuItem>
             </MenuItem>

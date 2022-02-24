@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WPF_Agenda.Models
 {
-    internal class Appointment
+    public class Appointment
     {
         [Key]
         public int IdAppointment { get; set; }

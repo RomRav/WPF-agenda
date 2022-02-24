@@ -11,16 +11,17 @@
     <StackPanel Background="#e9ecef">
         <Label FontSize="20">Ajoutez un client : </Label>
         <Label>Nom</Label>
-        <TextBox></TextBox>
+        <TextBox Name="lastnameInput"></TextBox> 
         <Label>Prénom</Label>
-        <TextBox></TextBox>
+        <TextBox Name="firstnameInput"></TextBox>
         <Label>E-mail</Label>
-        <TextBox></TextBox>
+        <TextBox Name="mailInput"></TextBox>
         <Label>Numéro de téléphone</Label>
-        <TextBox></TextBox>
+        <TextBox Name="phoneInput"></TextBox>
         <Label>Budget</Label>
-        <TextBox></TextBox>
-        <Button Margin="10" HorizontalAlignment="Center">Enregistrer</Button>
+        <TextBox Name="budgetInput"></TextBox>
+        <Button Click="addCustomerToDb" Margin="10" HorizontalAlignment="Center">Enregistrer</Button>
         <Button HorizontalAlignment="Center">Annuler</Button>
+        <Label FontSize="15" Foreground="Red"  Name="erreurLabel"></Label>
     </StackPanel>
 </Page>

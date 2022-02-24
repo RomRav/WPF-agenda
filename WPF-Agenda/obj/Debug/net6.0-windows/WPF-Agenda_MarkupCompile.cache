@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\romain\LaManu\WPF\Agenda\WPF-Agenda\WPF-Agenda\App.xaml
-2-1700934832
+4-1441356889
 
-8-1076557795
-204-1534011819
-addCustomer.xaml;MainWindow.xaml;
+13-681629663
+214-2118073998
+addBroker.xaml;addCustomer.xaml;customersList.xaml;MainWindow.xaml;
 
 False
 
