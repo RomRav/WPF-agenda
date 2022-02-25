@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace WPF_Agenda
         private readonly AgendaContext _db;
         public customersList()
         {
+            
             _db = new AgendaContext();
             InitializeComponent();
             this.DataContext = new Customer();
@@ -51,6 +53,7 @@ namespace WPF_Agenda
             customerToUpdate.Budget = InputCheck.checkBudget(budgetInput.Text);
             if (InputCheck.checkEmail(mailInput.Text) && InputCheck.checkPhone(phoneInput.Text) && customerToUpdate.Budget != 0)
             {
+                AgendaContext _db2 = new AgendaContext();
                 customerToUpdate.Mail = mailInput.Text;
                 customerToUpdate.PhoneNumber = phoneInput.Text;
                 _db.Customers.Update(customerToUpdate);
@@ -58,18 +61,35 @@ namespace WPF_Agenda
                 {
                     erreurLabel.Content = "OK.";
                     erreurLabel.Foreground = Brushes.Green;
+                    refreshCustomerList();
                 }
                 else
                 {
                     erreurLabel.Content = "Une erreur c'est produit!";
                 }
-
             }
             else
             {
                 erreurLabel.Content = "Erreur de saisie, merci de verifier les saisies.";
             }
-
+        }
+        //Au clique sur le bouton modifiez, met à jour le contenu du client.
+        private void deleteCustomer(object sender, RoutedEventArgs e)
+        {
+            AgendaContext _db3 = new AgendaContext();
+            Customer toDeletCustomer = new Customer();
+            toDeletCustomer.IdCustomer = Convert.ToInt32(id.Content);
+            _db3.Customers.Remove(toDeletCustomer);
+            _db3.SaveChanges();
+            refreshCustomerList();
+        }
+        //Met a jour la liste de client
+        private void refreshCustomerList()
+        {
+            AgendaContext _db = new AgendaContext();
+            List<Customer> customerList = _db.Customers.ToList();
+            customerDataGrid.ItemsSource = customerList;
+            customerDataGrid.Items.Refresh();
         }
     }
 }

@@ -1,0 +1,44 @@
+﻿<Page x:Class="WPF_Agenda.addAppointment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Agenda"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="addAppointment">
+
+    <Grid Background="#e9ecef">
+        <StackPanel Margin="10">
+            <Label>Client : </Label>
+            <ComboBox Name="customerComboBox">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Fill="{Binding IdCustomer}" Width="16" Height="16" Margin="0,2,5,2" />
+                            <TextBlock Text="{Binding Firstname}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label>Courtier : </Label>
+            <ComboBox Name="brokerComboBox">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Fill="{Binding IdBroker}" Width="16" Height="16" Margin="0,2,5,2" />
+                            <TextBlock Text="{Binding Firstname}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label>Date du rendez-vous</Label>
+            <DatePicker Name="appointmentdate"></DatePicker>
+            <Label>Heure : </Label>
+            <TextBox Name="appHour"></TextBox>
+            <Label>Minute : </Label>
+            <TextBox Name="appMinute"></TextBox>
+            <Button Click="insertAppointment">Enregistrez</Button>
+        </StackPanel>
+    </Grid>
+</Page>

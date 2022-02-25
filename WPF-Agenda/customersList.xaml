@@ -36,9 +36,8 @@
             <Label>Budget</Label>
             <TextBox Name="budgetInput"></TextBox>
             <Button Click="updateCustomer" Margin="10" HorizontalAlignment="Center">Modifiez</Button>
-            <Button HorizontalAlignment="Center">Supprimez</Button>
+            <Button Click="deleteCustomer" HorizontalAlignment="Center">Supprimez</Button>
             <Label FontSize="15" Foreground="Red"  Name="erreurLabel"></Label>
         </StackPanel>
-        
     </Grid>
-</Page>
+</Page> 

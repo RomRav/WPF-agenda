@@ -28,6 +28,7 @@ namespace WPF_Agenda
            _db = new AgendaContext();
             InitializeComponent();
         }
+        //Ajoute un nouveau client dans la base de données si les données saisie sont correct
         private void addCustomerToDb(object sender, RoutedEventArgs e)
         {
             
@@ -48,20 +49,17 @@ namespace WPF_Agenda
                 else
                 {
                     erreurLabel.Content = "Une erreur c'est produit!";
-                }
-                
+                }  
             }
             else
             {
                 erreurLabel.Content = "Erreur de saisie, merci de verifier les saisies.";
-            }
-            
-            
-            
-           
-            
-            
+            } 
         }
-        
+        //Au clique sur le bouton annulez retourne a la liste des clients
+        private void cancel(object sender, RoutedEventArgs e)
+        {
+           this.NavigationService.Navigate(new System.Uri("customersList.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }

@@ -9,10 +9,9 @@ namespace WPF_Agenda.Models
 {
     public class AgendaContext: DbContext
     {
-        public AgendaContext(DbContextOptionsBuilder optionBuilder) : base()
+        public AgendaContext() : base()
         {
-            optionBuilder.EnableSensitiveDataLogging();
-            base.OnConfiguring(optionBuilder);
+            
         }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Broker> Brokers { get; set; }
@@ -22,7 +21,7 @@ namespace WPF_Agenda.Models
         {
             optionBuilder.UseSqlServer("Server=localhost;Database=agenda;Trusted_Connection=True;");
             optionBuilder.EnableSensitiveDataLogging();
-            base.OnConfiguring(optionBuilder);
+           // base.OnConfiguring(optionBuilder);
         }
     }
 }

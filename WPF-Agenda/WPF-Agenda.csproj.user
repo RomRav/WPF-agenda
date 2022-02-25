@@ -7,10 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="addAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="addBroker.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="addCustomer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="brokersList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="customersList.xaml.cs">
@@ -18,10 +24,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="addAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="addBroker.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="addCustomer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="brokersList.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="customersList.xaml">

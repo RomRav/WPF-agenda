@@ -39,6 +39,21 @@ namespace WPF_Agenda
         {
             mainFrame.Navigate(new System.Uri("addBroker.xaml", UriKind.RelativeOrAbsolute));
         }
+        //Route vers le formulaire d'ajout d'un courtier.
+        public void toBrokersList(Object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new System.Uri("brokersList.xaml", UriKind.RelativeOrAbsolute));
+        }
+        //Route vers la liste des rendez-vous.
+        public void toAppointmentsList(Object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new System.Uri("appointmentList.xaml", UriKind.RelativeOrAbsolute));
+        }
         
+        //Route vers la liste des rendez-vous.
+        public void toAddAppointment(Object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new System.Uri("addAppointment.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }

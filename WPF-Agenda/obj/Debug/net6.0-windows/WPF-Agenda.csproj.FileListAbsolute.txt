@@ -57,3 +57,7 @@ C:\romain\LaManu\WPF\Agenda\WPF-Agenda\WPF-Agenda\obj\Debug\net6.0-windows\addBr
 C:\romain\LaManu\WPF\Agenda\WPF-Agenda\WPF-Agenda\obj\Debug\net6.0-windows\addBroker.baml
 C:\romain\LaManu\WPF\Agenda\WPF-Agenda\WPF-Agenda\obj\Debug\net6.0-windows\customersList.g.cs
 C:\romain\LaManu\WPF\Agenda\WPF-Agenda\WPF-Agenda\obj\Debug\net6.0-windows\customersList.baml
+C:\romain\LaManu\WPF\Agenda\WPF-Agenda\WPF-Agenda\obj\Debug\net6.0-windows\addAppointment.g.cs
+C:\romain\LaManu\WPF\Agenda\WPF-Agenda\WPF-Agenda\obj\Debug\net6.0-windows\addAppointment.baml
+C:\romain\LaManu\WPF\Agenda\WPF-Agenda\WPF-Agenda\obj\Debug\net6.0-windows\brokersList.g.cs
+C:\romain\LaManu\WPF\Agenda\WPF-Agenda\WPF-Agenda\obj\Debug\net6.0-windows\brokersList.baml

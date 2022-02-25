@@ -15,11 +15,15 @@
                 </MenuItem>
                 <MenuItem Header="_Courtier" Background="#d8f3dc" BorderThickness="2" BorderBrush="#184e77">
                     <MenuItem Click="toAddBroker" Header="_Ajouter un courtier" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
-                    <MenuItem Click="toAddCustomer" Header="_Liste des courtiers" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
+                    <MenuItem Click="toBrokersList" Header="_Liste des courtiers" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
+                </MenuItem>
+                <MenuItem Header="_Rendez-vous" Background="#d8f3dc" BorderThickness="2" BorderBrush="#184e77">
+                    <MenuItem Click="toAddAppointment" Header="_Ajouter un rendez-vous" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
+                    <MenuItem Click="toAppointmentsList" Header="_Liste des rendez-vous" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
                 </MenuItem>
             </MenuItem>
             <Label FontSize="15" Foreground="Red"  Name="menuLabel"></Label>
         </Menu>
-        <Frame Name="mainFrame" Source="" Height="500" NavigationUIVisibility="Hidden"></Frame>
+        <Frame Name="mainFrame" Source="customersList.xaml" Height="500" NavigationUIVisibility="Hidden"></Frame>
     </StackPanel>
 </Window>

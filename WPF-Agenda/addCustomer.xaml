@@ -21,7 +21,7 @@
         <Label>Budget</Label>
         <TextBox Name="budgetInput"></TextBox>
         <Button Click="addCustomerToDb" Margin="10" HorizontalAlignment="Center">Enregistrer</Button>
-        <Button HorizontalAlignment="Center">Annuler</Button>
+        <Button Click="cancel" HorizontalAlignment="Center">Annuler</Button>
         <Label FontSize="15" Foreground="Red"  Name="erreurLabel"></Label>
     </StackPanel>
 </Page>

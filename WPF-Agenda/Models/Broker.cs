@@ -11,7 +11,7 @@ namespace WPF_Agenda.Models
     public class Broker
     {
         [Key]
-        public int IdBrokers { get; set; }
+        public int IdBroker { get; set; }
         [Required(ErrorMessage ="Veuillez saisir un nom.")]
         [Display(Name ="Nom du courtier")]
         public string Lastname { get; set; }
