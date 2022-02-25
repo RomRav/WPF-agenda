@@ -32,7 +32,7 @@ namespace WPF_Agenda
         //Route vers la liste des clients
         public void toCustomerList(Object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new System.Uri("Page1.xaml", UriKind.RelativeOrAbsolute));
+            mainFrame.Navigate(new System.Uri("customersList.xaml", UriKind.RelativeOrAbsolute));
         }
         //Route vers le formulaire d'ajout d'un courtier.
         public void toAddBroker(Object sender, RoutedEventArgs e)

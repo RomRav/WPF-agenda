@@ -8,34 +8,37 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="customersList">
 
-    <FlowDocument Background="#edede9">
-        <Table BorderThickness="2" BorderBrush="Gray" TextAlignment="Center"  Name="clientsTable">
-            <Table.Columns>
-                <TableColumn/>
-                <TableColumn/>
-                <TableColumn/>
-                <TableColumn/>
-                <TableColumn/>
-            </Table.Columns>
-            <TableRowGroup  Background=" #85c1e9 ">
-                <TableRow>
-                    <TableCell>
-                        <Paragraph>Nom</Paragraph>
-                    </TableCell>
-                    <TableCell>
-                        <Paragraph>Prénom</Paragraph>
-                    </TableCell>
-                    <TableCell>
-                        <Paragraph>E-mail</Paragraph>
-                    </TableCell>
-                    <TableCell>
-                        <Paragraph>Téléphone</Paragraph>
-                    </TableCell>
-                    <TableCell>
-                        <Paragraph>Budget</Paragraph>
-                    </TableCell>
-                </TableRow>
-            </TableRowGroup>
-        </Table>
-    </FlowDocument>
+    <Grid Background="#e9ecef">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid MouseDoubleClick="transferDataToForm_Click"  Name="customerDataGrid" AutoGenerateColumns="False" Grid.Column="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nom" Binding="{Binding Lastname}" />
+                <DataGridTextColumn Header="Prénom" Binding="{Binding Firstname}" />
+                <DataGridTextColumn Header="E-mail" Binding="{Binding Mail }"/>
+                <DataGridTextColumn Header="Numéro de téléphone" Binding="{Binding PhoneNumber}" />
+                <DataGridTextColumn Header="Budget" Binding="{Binding Budget}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Column="1">
+            <Label Name="id" Visibility="Hidden"></Label>
+            <Label FontSize="20">Client :</Label>
+            <Label>Nom</Label>
+            <TextBox Name="lastnameInput"></TextBox>
+            <Label>Prénom</Label>
+            <TextBox Name="firstnameInput"></TextBox>
+            <Label>E-mail</Label>
+            <TextBox Name="mailInput"></TextBox>
+            <Label>Numéro de téléphone</Label>
+            <TextBox Name="phoneInput"></TextBox>
+            <Label>Budget</Label>
+            <TextBox Name="budgetInput"></TextBox>
+            <Button Click="updateCustomer" Margin="10" HorizontalAlignment="Center">Modifiez</Button>
+            <Button HorizontalAlignment="Center">Supprimez</Button>
+            <Label FontSize="15" Foreground="Red"  Name="erreurLabel"></Label>
+        </StackPanel>
+        
+    </Grid>
 </Page>

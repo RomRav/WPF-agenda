@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Agenda"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" >
     <StackPanel>
         <Menu BorderThickness="1" BorderBrush="#828A95" Background="#edede9">
             <MenuItem Header="_Menu"  Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77">
@@ -18,7 +18,8 @@
                     <MenuItem Click="toAddCustomer" Header="_Liste des courtiers" Background="#d8f3dc" BorderThickness="1" BorderBrush="#184e77" Margin="1"/>
                 </MenuItem>
             </MenuItem>
+            <Label FontSize="15" Foreground="Red"  Name="menuLabel"></Label>
         </Menu>
-        <Frame Name="mainFrame" Source="" Height="500" ></Frame>
+        <Frame Name="mainFrame" Source="" Height="500" NavigationUIVisibility="Hidden"></Frame>
     </StackPanel>
 </Window>

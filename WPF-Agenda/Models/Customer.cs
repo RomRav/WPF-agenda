@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace WPF_Agenda.Models
         public string Mail { get; set; }
         [Required(ErrorMessage = "Veuillez saisir un numéro de téléphone.")]
         [Display(Name ="Numéro de téléphone")]
-        public string Phone { get; set; }
+        public string PhoneNumber { get; set; }
         [Required(ErrorMessage ="Veuillez saisir un budget.")]
         [Display(Name ="Budget")]
         public int Budget { get; set; }

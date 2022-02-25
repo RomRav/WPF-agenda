@@ -101,7 +101,7 @@ namespace WPF_Agenda {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WPF-Agenda;V1.0.0.0;component/addcustomer.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WPF-Agenda;component/addcustomer.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\addCustomer.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

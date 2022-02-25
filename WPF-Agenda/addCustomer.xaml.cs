@@ -22,14 +22,15 @@ namespace WPF_Agenda
     /// </summary>
     public partial class addCustomer : Page
     {
-        
+       private readonly AgendaContext _db;
         public addCustomer()
         {
-
+           _db = new AgendaContext();
             InitializeComponent();
         }
         private void addCustomerToDb(object sender, RoutedEventArgs e)
         {
+            
             Customer customer = new Customer();
             customer.Firstname = firstnameInput.Text;
             customer.Lastname = lastnameInput.Text;
@@ -37,11 +38,22 @@ namespace WPF_Agenda
             if(InputCheck.checkEmail(mailInput.Text) && InputCheck.checkPhone(phoneInput.Text) && customer.Budget != 0 )
             {
                 customer.Mail = mailInput.Text;
-                customer.Phone = phoneInput.Text;
+                customer.PhoneNumber = phoneInput.Text;
+                _db.Customers.Add(customer);
+                if (_db.SaveChanges() > 0)
+                {
+                    erreurLabel.Content = "OK.";
+                    erreurLabel.Foreground = Brushes.Green;
+                }
+                else
+                {
+                    erreurLabel.Content = "Une erreur c'est produit!";
+                }
+                
             }
             else
             {
-                erreurLabel.Content = "Erreur de saisie, merci de verifier les saisie.";
+                erreurLabel.Content = "Erreur de saisie, merci de verifier les saisies.";
             }
             
             
