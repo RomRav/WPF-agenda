@@ -17,16 +17,12 @@ using WPF_Agenda.Models;
 
 namespace WPF_Agenda
 {
-    /// <summary>
-    /// Logique d'interaction pour customersList.xaml
-    /// </summary>
     public partial class customersList : Page
     {
-        private readonly AgendaContext _db;
+        private readonly agendaContext _db;
         public customersList()
         {
-            
-            _db = new AgendaContext();
+            _db = new agendaContext();
             InitializeComponent();
             this.DataContext = new Customer();
             List<Customer> customerList = _db.Customers.ToList();
@@ -51,32 +47,31 @@ namespace WPF_Agenda
             customerToUpdate.Lastname = lastnameInput.Text;
             customerToUpdate.Firstname = firstnameInput.Text;
             customerToUpdate.Budget = InputCheck.checkBudget(budgetInput.Text);
-            if (InputCheck.checkEmail(mailInput.Text) && InputCheck.checkPhone(phoneInput.Text) && customerToUpdate.Budget != 0)
+            if (InputCheck.checkEmail(mailInput.Text) && InputCheck.checkPhone(phoneInput.Text) && customerToUpdate.Budget != 0 && customerToUpdate.Firstname != "" && customerToUpdate.Lastname != "")
             {
-                AgendaContext _db2 = new AgendaContext();
+                agendaContext _db2 = new agendaContext();
                 customerToUpdate.Mail = mailInput.Text;
                 customerToUpdate.PhoneNumber = phoneInput.Text;
                 _db.Customers.Update(customerToUpdate);
                 if (_db.SaveChanges() > 0)
                 {
-                    erreurLabel.Content = "OK.";
-                    erreurLabel.Foreground = Brushes.Green;
+                    MessageBox.Show("Client bien enregistré");
                     refreshCustomerList();
                 }
                 else
                 {
-                    erreurLabel.Content = "Une erreur c'est produit!";
+                    MessageBox.Show("Une erreur c'est produit!");
                 }
             }
             else
             {
-                erreurLabel.Content = "Erreur de saisie, merci de verifier les saisies.";
+                MessageBox.Show("Erreur de saisie, merci de verifier les saisies.");
             }
         }
-        //Au clique sur le bouton modifiez, met à jour le contenu du client.
+        //Au clique sur le bouton supprime le client.
         private void deleteCustomer(object sender, RoutedEventArgs e)
         {
-            AgendaContext _db3 = new AgendaContext();
+            agendaContext _db3 = new agendaContext();
             Customer toDeletCustomer = new Customer();
             toDeletCustomer.IdCustomer = Convert.ToInt32(id.Content);
             _db3.Customers.Remove(toDeletCustomer);
@@ -86,10 +81,9 @@ namespace WPF_Agenda
         //Met a jour la liste de client
         private void refreshCustomerList()
         {
-            AgendaContext _db = new AgendaContext();
+            agendaContext _db = new agendaContext();
             List<Customer> customerList = _db.Customers.ToList();
             customerDataGrid.ItemsSource = customerList;
-            customerDataGrid.Items.Refresh();
         }
     }
 }

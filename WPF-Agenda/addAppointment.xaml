@@ -38,7 +38,10 @@
             <TextBox Name="appHour"></TextBox>
             <Label>Minute : </Label>
             <TextBox Name="appMinute"></TextBox>
+            <Label>Sujet :</Label>
+            <TextBox Name="appSubject"></TextBox>
             <Button Click="insertAppointment">Enregistrez</Button>
+            <Label Name="erreurMessage"></Label>
         </StackPanel>
     </Grid>
 </Page>

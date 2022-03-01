@@ -18,10 +18,10 @@ namespace WPF_Agenda
 {
     public partial class addAppointment : Page
     {
-        private readonly AgendaContext _db;
+        private readonly agendaContext _db;
         public addAppointment()
         {
-            _db = new AgendaContext();
+            _db = new agendaContext();
             InitializeComponent();
             List<Customer> listCustomers = _db.Customers.ToList();
             List<Broker> listBrokers = _db.Brokers.ToList();
@@ -31,14 +31,38 @@ namespace WPF_Agenda
         //Ajout un rendez-vous à la base de données
         private void insertAppointment(object sender, RoutedEventArgs e)
         {
-            DateTime appDateTime = appointmentdate.DisplayDate;
-            appDateTime.AddHours(Convert.ToDouble(appHour.Text));
-            appDateTime.AddMinutes(Convert.ToDouble(appMinute.Text));
-            Appointment newAppointment = new Appointment();
-            newAppointment.IdBroker = Convert.ToInt32(brokerComboBox.SelectedIndex);
-            newAppointment.IdCustomer = Convert.ToInt32(customerComboBox.SelectedIndex);
-            newAppointment.DateHour = appDateTime;
-            Console.WriteLine(newAppointment.ToString());
+            double hour = InputCheck.checkHourInput(appHour.Text);
+            double minute = InputCheck.checkMinuteInput(appMinute.Text);
+            if(hour < 25 && minute < 60)
+            {
+                DateTime appDateTime = appointmentdate.DisplayDate;
+                appDateTime = appDateTime.AddHours(hour);
+                appDateTime = appDateTime.AddMinutes(minute);
+                Appointment newAppointment = new Appointment();
+                Broker broker = (Broker)brokerComboBox.SelectedItem;
+                Customer customer = (Customer)customerComboBox.SelectedItem;
+                newAppointment.IdBroker = broker.IdBroker;
+                newAppointment.IdCustomer = customer.IdCustomer;
+                newAppointment.DateHour = appDateTime;
+                newAppointment.Subject = appSubject.Text;
+                try
+                {
+                    _db.Appointments.Add(newAppointment);
+                    _db.SaveChanges();
+                    erreurMessage.Content = "OK.";
+                    erreurMessage.Foreground = Brushes.Green;
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+            else
+            {
+                erreurMessage.Content = "Erreur de saisie. Merci de vérifier vos saisies.";
+                erreurMessage.Foreground = Brushes.Red;
+            }
+            
         }
     }
 }

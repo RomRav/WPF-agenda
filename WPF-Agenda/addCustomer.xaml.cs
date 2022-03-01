@@ -17,43 +17,38 @@ using WPF_Agenda.Models;
 
 namespace WPF_Agenda
 {
-    /// <summary>
-    /// Logique d'interaction pour addCustomer.xaml
-    /// </summary>
     public partial class addCustomer : Page
     {
-       private readonly AgendaContext _db;
+       private readonly agendaContext _db;
         public addCustomer()
         {
-           _db = new AgendaContext();
+           _db = new agendaContext();
             InitializeComponent();
         }
         //Ajoute un nouveau client dans la base de données si les données saisie sont correct
         private void addCustomerToDb(object sender, RoutedEventArgs e)
         {
-            
             Customer customer = new Customer();
             customer.Firstname = firstnameInput.Text;
             customer.Lastname = lastnameInput.Text;
             customer.Budget = InputCheck.checkBudget(budgetInput.Text);
-            if(InputCheck.checkEmail(mailInput.Text) && InputCheck.checkPhone(phoneInput.Text) && customer.Budget != 0 )
+            if(InputCheck.checkEmail(mailInput.Text) && InputCheck.checkPhone(phoneInput.Text) && customer.Budget != 0 && customer.Firstname != "" && customer.Lastname != "")
             {
                 customer.Mail = mailInput.Text;
                 customer.PhoneNumber = phoneInput.Text;
                 _db.Customers.Add(customer);
                 if (_db.SaveChanges() > 0)
                 {
-                    erreurLabel.Content = "OK.";
-                    erreurLabel.Foreground = Brushes.Green;
+                    MessageBox.Show("Client bien enregistré.");
                 }
                 else
                 {
-                    erreurLabel.Content = "Une erreur c'est produit!";
+                    MessageBox.Show("Une erreur c'est produit!");
                 }  
             }
             else
             {
-                erreurLabel.Content = "Erreur de saisie, merci de verifier les saisies.";
+                MessageBox.Show("Erreur de saisie, merci de verifier les saisies.");
             } 
         }
         //Au clique sur le bouton annulez retourne a la liste des clients

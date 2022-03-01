@@ -47,7 +47,7 @@ namespace WPF_Agenda
         //Route vers la liste des rendez-vous.
         public void toAppointmentsList(Object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new System.Uri("appointmentList.xaml", UriKind.RelativeOrAbsolute));
+            mainFrame.Navigate(new System.Uri("appointmentsList.xaml", UriKind.RelativeOrAbsolute));
         }
         
         //Route vers la liste des rendez-vous.

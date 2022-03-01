@@ -30,20 +30,22 @@ namespace WPF_Agenda.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAppointment"), 1L, 1);
 
+                    b.Property<int?>("IdBroker")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdCustomer")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DateHour")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("IdBroker")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdBrokerNavigationIdBrokers")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("idBroker");
 
                     b.Property<int>("IdCustomer")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdCustomerNavigationIdCustomer")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("idCustomer");
 
                     b.Property<string>("Subject")
                         .IsRequired()
@@ -51,20 +53,20 @@ namespace WPF_Agenda.Migrations
 
                     b.HasKey("IdAppointment");
 
-                    b.HasIndex("IdBrokerNavigationIdBrokers");
+                    b.HasIndex("IdBroker");
 
-                    b.HasIndex("IdCustomerNavigationIdCustomer");
+                    b.HasIndex("IdCustomer");
 
                     b.ToTable("Appointments");
                 });
 
             modelBuilder.Entity("WPF_Agenda.Models.Broker", b =>
                 {
-                    b.Property<int>("IdBrokers")
+                    b.Property<int>("IdBroker")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdBrokers"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdBroker"), 1L, 1);
 
                     b.Property<string>("Firstname")
                         .IsRequired()
@@ -82,7 +84,7 @@ namespace WPF_Agenda.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("IdBrokers");
+                    b.HasKey("IdBroker");
 
                     b.ToTable("Brokers");
                 });
@@ -110,7 +112,7 @@ namespace WPF_Agenda.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -121,21 +123,13 @@ namespace WPF_Agenda.Migrations
 
             modelBuilder.Entity("WPF_Agenda.Models.Appointment", b =>
                 {
-                    b.HasOne("WPF_Agenda.Models.Broker", "IdBrokerNavigation")
+                    b.HasOne("WPF_Agenda.Models.Broker", null)
                         .WithMany("Appointments")
-                        .HasForeignKey("IdBrokerNavigationIdBrokers")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BrokerIdBroker");
 
-                    b.HasOne("WPF_Agenda.Models.Customer", "IdCustomerNavigation")
+                    b.HasOne("WPF_Agenda.Models.Customer", null)
                         .WithMany("Appointments")
-                        .HasForeignKey("IdCustomerNavigationIdCustomer")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("IdBrokerNavigation");
-
-                    b.Navigation("IdCustomerNavigation");
+                        .HasForeignKey("CustomerIdCustomer");
                 });
 
             modelBuilder.Entity("WPF_Agenda.Models.Broker", b =>
